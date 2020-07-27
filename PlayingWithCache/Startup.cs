@@ -25,6 +25,8 @@ namespace PlayingWithCache
             {
                 optins.UseSqlServer(Configuration.GetConnectionString("SqlConnectionString"));
             });
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

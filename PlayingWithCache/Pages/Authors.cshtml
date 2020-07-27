@@ -1,0 +1,50 @@
+﻿@page
+@model AuthorsPage
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-primary" asp-page="./AuthorAdd">Add new author</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 py-4">
+        <div class="alert alert-info">Data comes from <b>@Model.Message</b></div>
+        @if (Model.Authors.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Rate</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var t in Model.Authors)
+                    {
+                        <tr>
+                            <td>@t.Id</td>
+                            <td>@t.Name</td>
+                            <td>@t.Rate</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-danger"><i class="la la-trash"></i></a>
+                                <a href="#" class="btn btn-sm btn-primary"><i class="la la-pen"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                There is no author to show!
+            </div>
+        }
+    </div>
+</div>

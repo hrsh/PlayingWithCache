@@ -1,0 +1,18 @@
+﻿@page
+@model AuthorAddPage
+
+@{
+    ViewData["Title"] = "Create Author";
+}
+
+<div class="row py-3">
+    <form id="add-author" method="post" class="col-12">
+        <div class="form-group">
+            <label asp-for="AuthorModel.Name"></label>
+            <input asp-for="AuthorModel.Name" class="form-control" />
+            <span class="small text-danger" asp-validation-for="AuthorModel.Name"></span>
+        </div>
+        <button class="btn btn-primary" type="submit">Save Changes <i class="la la-save"></i></button>
+        <a asp-page="./Author" class="btn btn-link">Cancel <i class="la la-reply"></i></a>
+    </form>
+</div>
